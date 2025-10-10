@@ -2,55 +2,109 @@
 #include <locale.h>
 #include <string.h>
 
+void mostrarCabecalho(){
+    printf("-----------------------------------------------------\n");
+    printf("SISTEMA DE TRIAGEM PARA MORADORES/ TRABALHADORES RURAIS\n");
+    printf(">> Esse sistema n√£o substitui uma avalia√ß√£o m√©dica.\n");
+    printf(">> Procure um posto de sa√∫de para uma avalia√ß√£o.\n");
+    printf("-----------------------------------------------------\n\n");
+}
+
+void mostrarSintomas(){
+    printf(">> SINTOMAS\n");
+    printf("[1] Febre\n");
+    printf("[2] Dor muscular e nas articula√ß√µes\n");
+    printf("[3] Manchas vermelhas\n");
+    printf("[4] Dor de cabe√ßa\n");
+    printf("[5] N√°usea e v√¥mito\n");
+    printf("[6] Incha√ßo e vermelhid√£o\n");
+    printf("[7] Diarreia\n");
+}
+
 int main(){
 	setlocale(LC_ALL,"Portuguese");
 	
-	int cont, sint1, sint2, sint3;
+	int i , cont, sint[5]; 
 	
-	printf("-----------------------------------------------------\n");
-	printf("SISTEMA DE TRIAGEM PARA MOREDORES/ TRABALHADORES RURAIS\n");
-	printf(">> Esse sistema n„o substitui uma avaliaÁ„o mÈdia.\n");
-	printf(">> Procure um posto de sa˙de para uma avaliaÁ„o.\n");
-	printf("-----------------------------------------------------\n");
-	
-	printf(">> SINTOMAS\n");
-	printf("[1] Febre\n");
-	printf("[2] Dor muscular e nas articulaÁıes\n");
-	printf("[3] Manchas vermelhas\n");
-	printf("[4] Dor de cabeÁa\n");
-	printf("[5] N·usea e vÙmito\n");
-	printf("[6] N·usea e vÙmito\n");
-	printf("[7] InchaÁo e vermelhid„o\n");
-	printf("[8] Diarreia\n");
-	
-	printf("\nQUANTOS DOS SINTOMAS ACIMA VOC  GOSTARIA DE SELECIONAR?\n");
+	mostrarCabecalho();
+	mostrarSintomas();
 	do{
+		printf("\nQUANTOS DOS SINTOMAS ACIMA VOC√ä GOSTARIA DE SELECIONAR?\n");
 		printf("[1] UM\n");
 		printf("[2] DOIS\n");
-		printf("[3] TR S\n");
-		printf("OpÁ„o: ");
+		printf("[3] TR√äS\n");
+		printf("[4] QUATRO\n");
+		printf("[5] CINCO\n");
+		printf("Op√ß√£o: ");
 		scanf("%d", &cont);
-		if(cont!=1 &&cont!=2 && cont!=3){
-			printf("\nOP«√O INV¡LIDA. DIGITE UMA DAS OP«’ES ABAIXO:\n");
+		if(cont < 1 || cont > 5){
+			printf("\nOP√á√ÉO INV√ÅLIDA. DIGITE UMA DAS OP√á√ïES ABAIXO:\n");
 		}
-	}while(cont!=1 &&cont!=2 && cont!=3);
+	}while (cont < 1 || cont > 5);
 	
-	if(cont==1){
-		printf("\nDIGITE O ÕNDICE DO SINTOMA QUE VOC  APRESENTA: ");
-		scanf("%d", &sint1);	
-	}else if(cont==2){
-		printf("\nDIGITE O ÕNDICE DO 1∞ SINTOMA QUE VOC  APRESENTA: ");
-		scanf("%d", &sint1);
-		printf("\nDIGITE O ÕNDICE DO 2∞ SINTOMA QUE VOC  APRESENTA: ");
-		scanf("%d", &sint2);		
-	}else if(cont==3){
-		printf("\nDIGITE O ÕNDICE DO 1∞ SINTOMA QUE VOC  APRESENTA: ");
-		scanf("%d", &sint1);
-		printf("\nDIGITE O ÕNDICE DO 2∞ SINTOMA QUE VOC  APRESENTA: ");
-		scanf("%d", &sint2);
-		printf("\nDIGITE O ÕNDICE DO 3∞ SINTOMA QUE VOC  APRESENTA: ");
-		scanf("%d", &sint3);		
-	}
+	printf("\n------------------------------ DIAGN√ìSTICO --------------------------------------\n");
+	printf("\nDIGITE O √çNDICE DO SINTOMA QUE VOC√ä APRESENTA: ");
+	scanf("%d", &sint[i]);
+
+    if(cont == 1){
+		for(i = 0; i < cont; i++){
+	        switch(sint[i]){
+	            case 1: 
+					printf(">> [FEBRE]: pode indicar gripe ou infec√ß√£o\n"); 
+					break;
+	            case 2: 
+					printf(">> [DOR MUSCULAR/ARTICULAR]: pode indicar esfor√ßo f√≠sico, gripe ou dengue\n"); 
+					break;
+	            case 3: 
+					printf(">> [MANCHAS VERMELHAS]: alergia, picada de inseto ou sarampo\n"); 
+					break;
+	            case 4: 
+					printf(">> [DOR DE CABE√áA]: gripe, desidrata√ß√£o ou tens√£o\n"); 
+					break;
+	            case 5: 
+					printf(">> [NAUSEA E VOMITO]: intoxica√ß√£o alimentar ou gastroenterite\n"); 
+					break;
+	            case 6: 
+					printf(">> [INCHA√áO E VERMELHID√ÉO]: alergia, ferida ou rea√ß√£o a picada de inseto\n"); 
+					break;
+	            case 7: 
+					printf(">> [DIARREIA]: intoxica√ß√£o alimentar ou infec√ß√£o intestinal\n"); 
+					break;
+	            default: 
+					printf(">> Sintoma inv√°lido\n"); 
+					break;
+            }
+        }
+    }else{
+        printf("Voc√™ informou %d sintomas.\n", cont);
+        printf("Com base nos sintomas informados, podem existir v√°rias condi√ß√µes poss√≠veis, incluindo:\n");
+		if (cont == 2){// para quando for 2 sintomas
+			if (sint == 1 && sint == 4){
+				printf("***************************************************************************************\n");
+				printf("[FEBRE] + [DOR DE CABE√áA]:\n >> Gripe ou virose comum!\n");
+				printf("***************************************************************************************\n");
+			}else if(sint == 2 && sint ==4){
+				printf("***************************************************************************************\n");
+				printf("[DOR MUSCULAR] + [DOR DE CABE√áA]:\n >> Cansa√ßo f√≠sico, gripe ou virose leve!\n");
+				printf("***************************************************************************************\n");
+			}else if(sint
+				//...vou continuar ps: julia oliveira
+		}else if(cont == 3){
+			// para quando por 3 sintoms
+			// ...continuar aqui
+		}else if(cont == 4){
+			// para quando por 4 sintoms
+			//...continuar aqui
+		}else if(cont == 5){
+			// para quando por 5 sintoms
+			//...continuar aqui
+		}
+	}//else 
+
+	printf("ATEN√á√ÉO: Este diagn√≥stico √© apenas informativo e n√£o substitui avalia√ß√£o m√©dica.\n");
+    printf("--------------------------------------------------------------------------------------------------------------\n");
 	
-	
-}
+	return 0;
+}//int main 
+
+
