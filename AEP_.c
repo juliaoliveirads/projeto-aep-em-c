@@ -99,12 +99,54 @@ int main(){
 			// para quando por 5 sintoms
 			//...continuar aqui
 		}
-	}//else 
+	} else { 
+		int febre=0, dor=0, manchas=0, cabeca=0, nausea=0, inchaco=0, diarreia=0, fraqueza=0, olhos=0;
 
+		for (i=0; i< cont; i++) {
+			switch(sint[i]){
+				case 1: febre = 1; break;
+				case 2: dor = 1; break;
+				case 3: manchas = 1; break;
+				case 4: cabeca = 1; break;
+                case 5: nausea = 1; break;
+                case 6: inchaco = 1; break;
+                case 7: diarreia = 1; break;
+                case 8: fraqueza = 1; break;
+                case 9: olhos = 1; break;
+			}
+		}
+
+		printf ("\n De acordo com os sintomas infromas, é recomendável a ida ao hospital e consulta profissional");
+		printf ("Possiveis condições de acordo com os sintomas informados:\n");
+
+		if (febre && dor && manchas && cabeca && nausea ) {
+			printf ("***********************************************************************************************************");
+			printf ("Febre + dor muscular + manchas vermelhas + dor de cabeça + naúsea >> Dengue hemorrágica ou febre maculosa "); 
+				}
+		else if (febre && dor && inchaco && diarreia ) {
+			printf ("***********************************************************************************************************");
+			printf ("Febre + dor muscular + inchaço + vermelhidão + diarreia >> Leptospirose avançada");
+				}
+		else if(febre && cabeca && inchaco && olhos){
+			printf ("***********************************************************************************************************");
+            printf ("Febre + dor de cabeça + inchaço + olhos amarelados >> Hepatite ou leptospirose grave");
+        }
+        else if(febre && cabeca && manchas && nausea && fraqueza){
+			printf ("***********************************************************************************************************");
+            printf("Febre + dor de cabeça + manchas + vômito + fraqueza >> Febre maculosa, chikungunya ou infecção séria");
+        }
+        else if(febre && inchaco && fraqueza){
+			printf ("***********************************************************************************************************");
+            printf(" Febre + inchaço + vermelhidão + fraqueza extrema >> Infecção bacteriana generalizada (sepse)");
+        }
+        else{
+            printf("Combinação de sintomas fora dos padrões graves cadastrados.\n");
+        }
 	printf("ATENÇÃO: Este diagnóstico é apenas informativo e não substitui avaliação médica.\n");
     printf("--------------------------------------------------------------------------------------------------------------\n");
 	
 	return 0;
 }//int main 
+
 
 
