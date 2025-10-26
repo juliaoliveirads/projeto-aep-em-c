@@ -23,7 +23,7 @@ void mostrarCabecalho(){
 //-------------------------------------------------- MENU DE ESCOLHA --------------------------------------------------------
 int mostrarIndice(){
     int cont;
-    do {
+    do{
         printf("*                                                                                                 *\n");
         printf("*  >> QUANTOS DOS SINTOMAS ACIMA VOCÊ GOSTARIA DE SELECIONAR?                                     *\n");
         printf("*                                                                                                 *\n");
@@ -43,12 +43,12 @@ int mostrarIndice(){
         scanf("%d", &cont);
         printf("\033[2B\033[100D");
 
-        if (cont < 1 || cont > 5) {
+        if (cont < 1 || cont > 5){
             printf("*  OPÇÃO INVÁLIDA! Digite um número entre 1 e 5 !!!                                               *\n");
             printf("*                                                                                                 *\n");
             printf("***************************************************************************************************\n");
         }
-    } while (cont < 1 || cont > 5);
+    }while (cont < 1 || cont > 5);
     return cont;
 }
 
@@ -111,11 +111,11 @@ void qtdsint(int cont){
         printf("*    - Beba bastante água.                                                                        *\n");
         printf("*    - Descanse e evite esforço físico.                                                           *\n");
         printf("*    - Alimente-se de forma leve e equilibrada.                                                   *\n");
-    } else if (strcmp(gravidade, "MODERADO") == 0){
+    }else if (strcmp(gravidade, "MODERADO") == 0){
         printf("*    - Hidrate-se bem (água e soro caseiro).                                                      *\n");
         printf("*    - Evite exposição ao sol.                                                                    *\n");
         printf("*    - Procure posto de saúde se sintomas persistirem.                                            *\n");
-    } else if (strcmp(gravidade, "GRAVE") == 0){
+    }else if (strcmp(gravidade, "GRAVE") == 0){
         printf("*    - Procure um hospital IMEDIATAMENTE.                                                         *\n");
         printf("*    - Evite automedicação.                                                                       *\n");
     }
@@ -321,7 +321,3 @@ int main(){
     menu();
     return 0;
 }
-
-
-
-
