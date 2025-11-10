@@ -14,7 +14,3 @@ Com este projeto, espera-se:
 -> Tornar o processo de triagem mais acessível para quem vive longe de centros urbanos;
 -> Aumentar a conscientização sobre sintomas comuns e possíveis cuidados;
 -> Mostrar como a tecnologia pode ser usada como uma ferramenta de apoio social.
-
-Tecnologias Utilizadas
-
-->O sistema foi desenvolvido em C, utilizando apenas bibliotecas padrão:
